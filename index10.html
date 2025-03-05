@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue-Green Deployment</title>
+    <style>
+       body {
+            background-color: #081b29;
+ 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto;
+            text-align: center;
+        }
+   
+        .description {
+            scrollbar-width: none; /* Hides scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hides scrollbar for IE & Edge */
+        }
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #02131e, #001f3f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.3);
+        }
+        .banner h1 {
+             font-size: 64px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00e1ff, #7a00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+}
+
+        /* Content Sections */
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .text-content {
+            max-width: 800px;
+            text-align: left;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #d2ec14;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #d2ec14;
+            margin-bottom: 10px;
+        }
+        .underline {
+            width: 100%;
+            height: 3px;
+            background: #58A6FF;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        ul li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #58A6FF;
+        }
+        /* Images */
+        .image-content {
+    margin-top: 40px; /* Adjust this value to move the image slightly down */
+}
+        .image-content img {
+            max-width: 95%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin-right: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .image-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
+        }
+        /* Buttons */
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn img {
+            width: 20px;
+            height: 20px;
+            gap: 40px;
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        /* Scroll Button */
+        .scroll-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+            display: none;
+            transition: all 0.3s ease-in-out;
+            animation: bounce 2s infinite;
+        }
+        .scroll-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.08) rotate(-5deg);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .banner h1 {
+                font-size: 48px;
+            }
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .text-content, .image-content {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 36px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 28px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+        .ajay {
+    font-size: 18px;
+    font-weight: bold;
+    color:whitesmoke;
+   
+    }
+
+   
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+   <!--  <div class="banner">
+        <h1>My Latest Projects</h1>   -->
+    </div>
+
+    <!-- Project Section -->
+    
+        <div class="container">
+            <div class="text-content">
+                <h1>Deploy a High Availability Web Application on GCP using Terraform</h1>
+                <hr class="underline">
+                <p class="ajay"
+                >This project focuses on implementing a highly available web application on GCP using Terraform</p>
+                <h2>Implementation</h2>
+                <ul>
+                    <li class="ajay">Deployed a highly available web app on GCP using Terraform, improving scalability and uptime by 99.9% with auto-scaling and load balancing</li>
+                    <li class="ajay">Optimized infrastructure costs by 30% through efficient resource provisioning, leveraging Terraform for automated deployments.</li>
+                    <li class="ajay">Enhanced security by implementing IAM roles, VPC networking, and firewall rules, reducing vulnerabilities by 40%.</li>
+                    <li class="ajay">Integrated Cloud SQL and Cloud Storage, ensuring 99.99% data reliability and reducing latency by 20%.</li>
+                </ul>
+            </div>
+            <div class="image-content">
+                <img src="Screenshot 2025-02-10 231218.png" alt="Deployment Illustration">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="scrollToTop()">↑ Back to Top</button>
+            <button class="btn" onclick="openNewPage()">
+                <img src="Screenshot 2025-02-10 174721.png" alt="Icon" class="btn-icon"> Github Repo
+            </button>
+        </div>
+    </section>
+
+    <!-- Buttons -->
+    <section>
+        <div class="container">
+
+
+            <div class="text-content">
+                <h1>Host a Static Website on Google Cloud Storage</h1>
+                <hr class="underline">
+                <p class="ajay">This project focuses on hosting a static website on Google Cloud Storage, ensuring scalability, cost-efficiency, and high availability. </p>
+                <h2>Implementation</h2>
+                <ul>
+                    <li class="ajay">Deployed a static website on Google Cloud Storage, ensuring 99.99% uptime with cost-effective hosting.</li>
+                    <li class="ajay">Optimized storage, caching, and compression, reducing latency by 40% and improving page load speed</li>
+                    <li class="ajay">Enhanced content delivery by implementing Cloud CDN, reducing bandwidth costs by 30% and improving global performance.</li>
+                    <li class="ajay">Implemented Traffic Splitting in Cloud Run and App Engine, enabling gradual rollouts and safe rollbacks for zero-downtime updates</li>
+                </ul>
+            </div>
+            <div class="image-content">
+                <img src="Screenshot 2025-02-10 234043.png" alt="Deployment Illustration">
+            </div>
+        </div>
+
+
+        <div class="btn-container">
+            <button class="btn" onclick="scrollToTop()">↑ Back to Top</button>
+            <button class="btn" onclick="openNewPage()">
+                <img src="Screenshot 2025-02-10 174721.png" alt="Icon" class="btn-icon">  Github Repo
+            </button>
+        </div>
+        
+    
+
+        <div class="container">
+            <div class="text-content">
+                <h1> Portfolio Website</h1>
+                <hr class="underline">
+                <p class="ajay"
+                >This project involves creating a portfolio website to highlight expertise, projects, and achievements with a polished online presence. </p>
+                <h2>Implementation</h2>
+                <ul>
+                    <li class="ajay">Built a responsive portfolio website using HTML, CSS, and JavaScript, ensuring seamless cross-device compatibility.</li>
+                    <li class="ajay">Optimized CSS and JavaScript, reducing page load time by 40% for a smoother user experience.</li>
+                    <li class="ajay">Implemented dynamic UI components with JavaScript, improving user interaction and engagement.</li>
+                    <li class="ajay">Enhanced website aesthetics with custom CSS animations, boosting visual appeal and usability.</li>
+                </ul>
+            </div>
+            <div class="image-content">
+                <img src="Screenshot 2025-02-10 235034.png" alt="Deployment Illustration">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="scrollToTop()">↑ Back to Top</button>
+            <button class="btn" onclick="openNewPage()">
+                <img src="Screenshot 2025-02-10 174721.png" alt="Icon" class="btn-icon"> Github Repo
+            </button>
+        </div>
+
+
+        <div class="container">
+            <div class="text-content">
+                <h1> Minor-1 Project For College 16-bit ALU on PYNQ Z2 FPGA</h1>
+                <hr class="underline">
+                <p class="ajay"
+                >Showcased the 16-bit ALU implementation on PYNQ Z2 FPGA Board  highlighting design, optimization, and real-time testing.
+
+
+
+
+
+
+            </p>
+                <h2>Implementation</h2>
+                <ul>
+                    <li class="ajay">Designed and implemented a high-performance 16-bit ALU on PYNQ Z2 FPGA, supporting arithmetic, logical, and bitwise operations.</li>
+                    <li class="ajay">Developed and verified ALU functionality using Verilog/VHDL, simulation tools, and on-board hardware testing.</li>
+                    <li class="ajay">Optimized resource utilization and latency, ensuring efficient computation and FPGA deployment.</li>
+                    <li class="ajay">Integrated and tested the ALU for real-time processing, enhancing FPGA-based computational efficiency.</li>
+                </ul>
+            </div>
+            <div class="image-content">
+                <img src="Screenshot 2025-02-11 145619.png" alt="Deployment Illustration">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="scrollToTop()">↑ Back to Top</button>
+            <button class="btn" onclick="openNewPage()">
+                <img src="Screenshot 2025-02-10 174721.png" alt="Icon" class="btn-icon"> Github Repo
+            </button>
+        </div>
+
+    <!-- JavaScript -->
+    <script src="main.js">
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #1f242d;
+            color: white;
+        }
+
+        /* Navbar */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #121212;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            color: #7cf03d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 15px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            color: #7cf03d;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            background: #323946;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #2c3e50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 10px;
+            background: #7cf03d;
+            border: none;
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            background: #66cc33;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #121212;
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .navbar.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact <span>Me</span></h2>
+        <h4>Let's Work Together</h4>
+        <p>Feel free to reach out for any collaborations or queries!</p>
+        
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Enter Your Name" required>
+                <input type="email" id="email" placeholder="Enter Your Email" required>
+                <textarea id="message" rows="5" placeholder="Enter Your Message" required></textarea>
+                <button type="submit" class="send-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Navbar Active Link Highlight
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.navbar a').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.querySelector('.navbar').classList.toggle('show');
+        }
+
+        // Smooth Scroll to Contact Form
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            alert("Message Sent Successfully!");
+            this.reset();
+        });
+
+        // Open "Coming Soon" Page
+        function openNewPage(url) {
+            let newWindow = window.open("", "_blank");
+
+            if (!newWindow) {
+                alert("Popup blocked! Please allow popups for this site.");
+                return;
+            }
+
+            setTimeout(() => {
+                newWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>Redirecting...</title>
+                        <style>
+                            * { text-align: center; font-family: Arial, sans-serif; }
+                            body { background-color: #0D1117; color: white; }
+                            .loading-text { font-size: 30px; margin-top: 50px; color: #58A6FF; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Redirecting to the new page...</h1>
+                        <p class="loading-text">Please wait...</p>
+                    </body>
+                    </html>
+                `);
+                newWindow.document.close();
+
+                setTimeout(() => {
+                    newWindow.location.href = url;
+                }, 2000);
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>

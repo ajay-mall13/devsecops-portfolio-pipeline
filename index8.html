@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications and Achievements</title>
+    <style>
+        iframe {
+    border: none; /* Removes the border */
+    outline: none; /* Ensures no outline appears */
+    box-shadow: none; /* Removes any shadow effects */
+    display: block; /* Prevents unwanted spacing */
+}
+
+        body {
+            background-color: #081b29;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto;
+            text-align: center;
+        }
+        .description {
+            scrollbar-width: none; /* Hides scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hides scrollbar for IE & Edge */
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .container {
+            background: linear-gradient(135deg, #232526, #414345);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 750px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            transition: box-shadow 0.5s ease-in-out;
+            width: 100%;
+            overflow-y: auto;
+        }
+        .container:hover {
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.4);
+        }
+        h2 {
+            font-size: 24px;
+            background: linear-gradient(90deg, #f4102b, #d5d522, #156d07, #285ebb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .description {
+            color: #dcdcdc;
+            line-height: 1.5;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .sidebar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: #4facfe;
+            font-size: 18px;
+            font-weight: bold;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .sidebar span {
+            cursor: pointer;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .sidebar span:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .certificate {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(90deg, #4facfe, #00c6ff);
+            color: white;
+            font-weight: bold;
+            border: none;
+            margin: auto;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: moveAround 3s infinite alternate ease-in-out;
+        }
+        .certificate:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 0px 20px rgba(79, 172, 254, 0.8);
+        }
+        .certificate:active {
+            transform: scale(0.9);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes moveAround {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(10px); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .title {
+                font-size: 28px;
+            }
+            .sidebar {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Certifications and Achievements</h1>
+    <div class="container">
+        <h2 id="heading"> Intern at Ybi Foundation</h2>
+        <div class="content-wrapper">
+            <p class="description" id="content">
+                ✅ Optimized cloud infrastructure, reducing deployment time by 30% and improving system efficiency.
+                 <br>
+                ✅ Designed and deployed scalable cloud solutions, enhancing data processing speed for large datasets.
+                <br>
+                ✅ Collaborated with teams to implement cost-effective cloud strategies, reducing operational expenses.
+            </p>
+            <div class="sidebar">
+                <span onclick="updateContent(1)">01</span>
+                <span onclick="updateContent(2)">02</span>
+                <span onclick="updateContent(3)">03</span>
+                <span onclick="updateContent(4)">04</span>
+                <span onclick="updateContent(5)">05</span>
+                <span onclick="updateContent(6)">06</span>
+                <span onclick="updateContent(7)">07</span>
+                <span onclick="updateContent(8)">08</span>
+                <span onclick="updateContent(9)">09</span>
+            </div>
+        </div>
+        <button class="certificate" onclick="openCertificateLink()">Certificate</button>
+    </div>
+    
+  <script>
+
+
+
+    let selectedOption = 1; 
+
+function openCertificateLink() {
+    let links = {
+        1: "https://drive.google.com/file/d/1PFHdig9tjuv-mNq1eWnXY8TDYzGcKm17/view?usp=sharing",
+        2: "https://drive.google.com/file/d/1IEUt4pXiqt8YxmJTDEI4rSIILk_Sng9i/view?usp=sharing",
+        3: "https://drive.google.com/file/d/1zR_cGk6kFRFkHv4ihe_6rD_WOGTJzH0a/view?usp=sharing",
+        4: "https://drive.google.com/file/d/1n2OVNVn4ld1kYVxT10mcpFZTE8Kuw08z/view?usp=sharing",
+        6: "https://drive.google.com/file/d/1r7P8VslIQiS_fkZkmMyXBVE0yzZR1EyP/view?usp=sharing",
+        7: "https://www.coursera.org/specializations/cyber-security",
+        8: "https://drive.google.com/file/d/12DK3DRsnep-2IZCX7taIZ3MyXtjmFRhL/view?usp=sharing",
+        9: "https://drive.google.com/file/d/1Fgxt3-rQhw3jfqxgOMEkGMBBtHUhwhRn/view?usp=sharing"
+
+        
+
+    };
+
+    if (links[selectedOption]) {
+        window.open(links[selectedOption], "_blank");
+    } else {
+        alert("No certificate link available for this selection.");
+    }
+}
+
+function updateContent(option) {
+    const content = document.getElementById("content");
+    const heading = document.getElementById("heading");
+
+    selectedOption = option; 
+
+    if (option === 1) {
+        heading.innerText = "Intern at Ybi Foundation";
+        content.innerHTML = `
+            ✅ Deployed cloud infrastructure using Terraform on GCP, improving scalability and automation. <br>
+
+            ✅ Optimized compute resources with Google Compute Engine & Auto-scaling, reducing costs and enhancing performance.<br>
+
+            ✅ Implemented secure cloud access with IAM roles & VPC networking, strengthening security and compliance.<br>
+            ✅ Built and optimized big data pipelines on Google Cloud Platform (GCP) using BigQuery and Dataflow, enabling real-time analytics and improving data processing efficiency.
+        `;
+    } 
+    else if (option === 2) {
+        heading.innerText = "GCP Associate Cloud Engineering";
+        content.innerHTML = `
+            ✅ Cloud Infrastructure Deployment – Proficient in setting up VMs, VPCs, Load Balancers, and Storage.<br>
+            ✅ IAM & Security – Managing roles, permissions, service accounts, and ensuring compliance.<br>
+            ✅ Infrastructure as Code (IaC) – Automating deployments using Terraform on GCP.<br>
+            ✅ High Availability & Scalability – Configuring autoscaling, load balancing, and failover strategies.<br>
+            ✅ Monitoring & Logging – Utilizing Cloud Logging, Cloud Monitoring, and Stackdriver for performance optimization.
+        `;
+    } 
+    else if (option === 3) {
+        heading.innerText = "Foundations of Cybersecurity";
+        content.innerHTML = `
+            ✅ Gained foundational knowledge in cybersecurity, covering risk assessment, threat detection, and mitigation strategies.<br>
+            ✅ Learned key security principles, authentication methods, and best practices for protecting networks and data.<br>
+            ✅ Understood how authentication and encryption help keep data safe.<br>
+            ✅ Gained skills to identify and prevent common security risks.
+        `;
+    } 
+    else if (option === 4) {
+        heading.innerText = "Introduction Of Cybersecurity";
+        content.innerHTML = `
+            ✅ Strong understanding of online safety, cybersecurity principles, and their significance in protecting digital assets.<br>
+            ✅ Gained expertise in identifying and analyzing cyber threats, attacks, and vulnerabilities to enhance security defenses.<br>
+            ✅ Learned effective strategies for securing online presence, implementing authentication, encryption, and safe browsing techniques.<br>
+            ✅ Understood how companies defend against attacks and explored various cybersecurity career opportunities.
+        `;
+    } 
+    else if (option === 5) {
+        heading.innerText = "Competitive Programming";
+        content.innerHTML = `
+            ✅Solved 150+ DSA problems across LeetCode and 360 Coding Ninjas, demonstrating strong analytical and algorithmic skills. <br>
+           ✅ Achieved the top rank(#1) on 360 Coding Ninjas at SMVDU, showcasing competitive programming excellence and mastery of data structures and algorithms.<br>
+            <button onclick="window.open('https://leetcode.com/u/ajaymall13/', '_blank')" style="padding: 10px; margin: 5px; background-color: #f39c12; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                🏆 LeetCode
+            </button>
+            <button onclick="window.open('https://www.codingninjas.com/', '_blank')" style="padding: 10px; margin: 5px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                🏆 360 Coding Ninjas
+            </button>
+        `;
+    } 
+    else if (option === 6) {
+        heading.innerText = "MATLAB Onramp";
+        content.innerHTML = `
+            ✅ Certified in MATLAB Onramp, demonstrating proficiency in MATLAB fundamentals, including matrix operations, data visualization, and scripting..<br>
+            ✅ Gained hands-on experience in MATLAB programming, enhancing problem-solving skills for data analysis, simulations.<br>
+            ✅ Developed a strong foundation in computational modeling and automation, crucial for engineering and scientific applications.<br>
+            
+        `;
+    } 
+    else if (option === 7) {
+        heading.innerText = "Python Intermediate";
+        content.innerHTML = `
+            ✅ covering fundamental programming concepts like variables, loops, and functions etc.<br>
+            ✅ Gained hands-on experience with data types, conditionals, and basic problem-solving using Python.<br>
+            ✅I Want Built a strong foundation in Python .
+        <br>
+            
+        `;
+    } 
+    else if (option === 9) {
+        heading.innerText = "The ART of FPGA Design";
+        content.innerHTML = `
+             ✅Organized by: AMD-Xilinx & CoreEL Technologies – Industry leaders in FPGA solutions. <br>
+         ✅Key Learning Area: Likely covered FPGA architecture, programming, and design flow. <br>
+✅Industry Relevance: FPGA is widely used in embedded systems, AI, signal processing, and hardware acceleration. <br>
+            ✅ Skill Development: Enhances expertise in hardware description languages (HDL), such as Verilog/VHDL, and FPGA-based projects. <br>
+        <br>
+            
+        `;
+    } 
+    else  {
+        heading.innerText = "Simulink Onramp";
+        content.innerHTML = `
+            ✅ Certified in Simulink Onramp, showcasing expertise in model-based design, system simulation, and dynamic system modeling.<br>
+            ✅ Developed hands-on skills in building, simulating, and analyzing complex systems using Simulink graphical interface..<br>
+            
+        `;
+    }
+}
+
+
+  </script>
+
+
+
+</body>
+</html>

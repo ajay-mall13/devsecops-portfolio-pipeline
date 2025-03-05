@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    /* Reset basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #081b29;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      background-color: #1e1e2f;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Contact Info Section */
+    .contact-text h2 {
+      font-size: 40px;
+      line-height: 1.2;
+      color: #0ef;
+    }
+
+    .contact-text h2 span {
+      color: #ff5a82;
+    }
+
+    .contact-text h4 {
+      margin: 15px 0;
+      color: rgb(228, 228, 228);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .contact-text p {
+      color: rgb(177, 177, 177);
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 2rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-text i {
+      color: #0ef;
+      font-size: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-icons a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 2px solid #0ef;
+      border-radius: 50%;
+      font-size: 24px;
+      color: #0ef;
+      text-decoration: none;
+      transition: 0.5s ease;
+      box-shadow: 0 0 10px rgba(0, 239, 255, 0.4);
+    }
+
+    .contact-icons a:hover {
+      background: #0ef;
+      color: #000;
+      box-shadow: 0 0 20px #0ef, 0 0 50px #0ef;
+    }
+
+    /* Form Section */
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      background: #1e1e2f;
+      padding: 30px 40px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-form h2 {
+      color: #ff5a82;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form label span {
+      color: #ff5a82;
+    }
+
+    form input,
+    form textarea {
+      background-color: #2a2a40;
+      border: 2px solid #444;
+      padding: 10px;
+      color: white;
+      border-radius: 8px;
+      margin-top: 5px;
+      box-shadow: inset 0 0 8px rgba(0, 239, 255, 0.2);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      box-shadow: 0 0 12px #0ef, inset 0 0 8px #0ef;
+      transform: translateY(-2px);
+    }
+
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #bbb;
+    }
+
+    form textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    form button {
+      background-color: #ff5a82;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 8px 15px rgba(255, 90, 130, 0.3);
+    }
+
+    form button:hover {
+      background-color: #e0486a;
+      box-shadow: 0 8px 20px rgba(255, 90, 130, 0.6);
+      transform: translateY(-3px);
+    }
+
+    form button:active {
+      transform: translateY(2px);
+      box-shadow: 0 4px 8px rgba(255, 90, 130, 0.3);
+    }
+
+    /* Responsive Design */
+/* Extra Small Devices (Phones, 600px and below) */
+@media (max-width: 600px) {
+  .contact {
+    padding: 10px;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-text {
+    text-align: center;
+  }
+
+  .contact-text h2 {
+    font-size: 24px;
+  }
+
+  .contact-text h4 {
+    font-size: 18px;
+  }
+
+  .contact-text p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .contact-list li {
+    font-size: 14px;
+  }
+
+  .contact-icons {
+    justify-content: center;
+  }
+
+  .contact-icons a {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .contact-form form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  form label {
+    font-size: 14px;
+  }
+
+  form input,
+  form textarea {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  form button {
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+  }
+}
+    /* Extra Small Devices (Phones, 600px and below) */
+    @media (max-width: 600px) {
+      .contact {
+        padding: 15px;
+        gap: 1.5rem;
+      }
+
+      .contact-text h2 {
+        font-size: 28px;
+      }
+
+      .contact-text p {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      .contact-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+      }
+
+      form button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+
+    /* Small Tablets (Portrait, 768px and below) */
+    @media (max-width: 768px) {
+      .contact {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .contact-form form {
+        max-width: 100%;
+      }
+
+      .contact-text h2 {
+        font-size: 36px;
+      }
+    }
+
+    /* Medium Tablets (Landscape, 1024px and below) */
+    @media (max-width: 1024px) {
+      .contact {
+        padding: 30px;
+      }
+
+      .contact-text h2 {
+        font-size: 40px;
+      }
+
+      .contact-form form {
+        padding: 25px;
+      }
+    }
+
+    /* Large Screens (Desktops, 1440px and below) */
+    @media (max-width: 1440px) {
+      .contact {
+        padding: 40px;
+      }
+
+      .contact-text h2 {
+        font-size: 45px;
+      }
+
+      form input, form textarea {
+        padding: 12px;
+      }
+
+      .contact-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <section class="contact" id="contact">
+    <div class="contact-text">
+      <h2>Contact <span>Me</span></h2>
+      <h4>Let's Work Together</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quas maiores asperiores.</p>
+      <div class="contact-list">
+        <li><i class='bx bxs-send'></i> ajaymall90@gmail.com</li>
+        <li><i class='bx bxs-phone'></i> +91-8429510751</li>
+      </div>
+
+      <div class="contact-icons">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <form action="#">
+        <h2>Contact Us</h2>
+        <label for="name">Name <span>*</span></label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="email">Email <span>*</span></label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="message">Message <span>*</span></label>
+        <textarea id="message" name="message" required placeholder="Write your message"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
