@@ -1,5 +1,5 @@
 # 🔐 DevSecOps CI/CD Pipeline for Portfolio Website
-
+This project implements a **complete DevSecOps CI/CD pipeline** for a personal portfolio website using modern DevOps and security tools.
 This is the source code for my personal portfolio website, built to showcase my skills, projects, and experience.
 
 🚀 **Live Website:**  
@@ -20,9 +20,6 @@ This is the source code for my personal portfolio website, built to showcase my 
 - Contact info and social links
 
 ---
-# 🔐 DevSecOps CI/CD Pipeline for Portfolio Website
-
-This project implements a **complete DevSecOps CI/CD pipeline** for a personal portfolio website using modern DevOps and security tools.
 
 ---
 
@@ -97,7 +94,8 @@ This project implements a **complete DevSecOps CI/CD pipeline** for a personal p
 ---
 
 <img width="1025" height="314" alt="image" src="https://github.com/user-attachments/assets/e025efdd-33c8-4a79-9c87-1ad68fbf99b0" />
-<img width="722" height="507" alt="image" src="https://github.com/user-attachments/assets/79b202ed-46b4-402b-a7e6-0cf448156ab5" />
+<img width="1325" height="445" alt="Screenshot 2025-08-06 194851" src="https://github.com/user-attachments/assets/3a1044d7-8f61-4ab4-9693-8d33a6da7e1d" />
+
 <img width="1904" height="969" alt="Screenshot 2025-08-06 180500" src="https://github.com/user-attachments/assets/b4cec284-1e2b-49e2-9edd-2e87d7351dc6" />
 <img width="1890" height="961" alt="Screenshot 2025-08-06 174824" src="https://github.com/user-attachments/assets/32d48851-99d2-4ea7-8755-8617b1ad6001" />
 <img width="1919" height="938" alt="Screenshot 2025-08-06 180441" src="https://github.com/user-attachments/assets/467ad3b4-3780-4f28-af7b-83a16b610224" />
