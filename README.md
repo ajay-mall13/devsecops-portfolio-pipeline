@@ -105,6 +105,7 @@ This is the source code for my personal portfolio website, built to showcase my 
 
 <img width="1915" height="962" alt="Screenshot 2025-08-06 111759" src="https://github.com/user-attachments/assets/aa1bcaad-0756-45d9-a980-d0ab75650333" />
 
+<img width="1386" height="709" alt="image" src="https://github.com/user-attachments/assets/a6ed6144-b7ba-4d4f-b85e-eb400d735a7e" />
 
 
 
