@@ -95,9 +95,12 @@ This is the source code for my personal portfolio website, built to showcase my 
 
 <img width="1025" height="314" alt="image" src="https://github.com/user-attachments/assets/e025efdd-33c8-4a79-9c87-1ad68fbf99b0" />
 <img width="1325" height="445" alt="Screenshot 2025-08-06 194851" src="https://github.com/user-attachments/assets/3a1044d7-8f61-4ab4-9693-8d33a6da7e1d" />
+<img width="1913" height="947" alt="Screenshot 2025-08-05 165134" src="https://github.com/user-attachments/assets/be306f5e-6cd3-4968-9294-9732831894fe" />
 
 <img width="1904" height="969" alt="Screenshot 2025-08-06 180500" src="https://github.com/user-attachments/assets/b4cec284-1e2b-49e2-9edd-2e87d7351dc6" />
-<img width="1890" height="961" alt="Screenshot 2025-08-06 174824" src="https://github.com/user-attachments/assets/32d48851-99d2-4ea7-8755-8617b1ad6001" />
+<img width="1915" height="962" alt="Screenshot 2025-08-06 111759" src="https://github.com/user-attachments/assets/e95e5734-92a7-4bef-92cf-b3aa95eff285" />
+<img width="1205" height="583" alt="Screenshot 2025-08-06 195126" src="https://github.com/user-attachments/assets/8ec116f0-f740-4cb6-9a7e-2e74de149bf3" />
+
 <img width="1919" height="938" alt="Screenshot 2025-08-06 180441" src="https://github.com/user-attachments/assets/467ad3b4-3780-4f28-af7b-83a16b610224" />
 
 <img width="1915" height="962" alt="Screenshot 2025-08-06 111759" src="https://github.com/user-attachments/assets/aa1bcaad-0756-45d9-a980-d0ab75650333" />
