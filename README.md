@@ -3,7 +3,7 @@ This project implements a **complete DevSecOps CI/CD pipeline** for a personal p
 This is the source code for my personal portfolio website, built to showcase my skills, projects, and experience.
 
 🚀 **Live Website:**  
-👉 [ajaymall-portfolio.netlify.app](https://ajaymall-portfolio.netlify.app/)
+👉 [ajaymall-portfolio.netlify.app](https://ajay-mall-port-folio.netlify.app/)
 
 ## 🛠️ Tech Stack
 
