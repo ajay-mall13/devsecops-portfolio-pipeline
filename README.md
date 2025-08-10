@@ -1,6 +1,8 @@
 # 🔐 DevSecOps CI/CD Pipeline for Portfolio Website
 This project implements a **complete DevSecOps CI/CD pipeline** for a personal portfolio website using modern DevOps and security tools.
 This is the source code for my personal portfolio website, built to showcase my skills, projects, and experience.
+<img width="826" height="565" alt="Screenshot 2025-08-10 230303" src="https://github.com/user-attachments/assets/1a362490-8849-4424-bbd6-aba2459e6e17" />
+
 
 🚀 **Live Website:**  
 👉 [ajaymall-portfolio.netlify.app](https://ajay-mall-port-folio.netlify.app/)
